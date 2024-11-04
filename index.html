@@ -1,0 +1,817 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Projeto</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="236a4b07-6ea4-46a6-a049-17c555a51bce" class="page sans"><header><img class="page-cover-image" src="Projeto%20236a4b076ea446a6a04917c555a51bce/g9448.png" style="object-position:center 50%"/><center><h1 class="page-title">Projeto de Estatística Aplicada</h1><h2>Prof.: Davi Maia</h2></center><p class="page-description"></p></header><div class="page-body"><p id="0c32c2be-8d1c-4e1f-8236-50bc29c1ed00" class=""><center></p><h2 id="da71412b-8b04-4162-8b31-21e6455f252b" class=""><h2>Aluno: Allan Lauzid</h2></center>
+</p><details><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">RELATÓRIO</summary><div class="indented"><p id="4a2e5693-011e-4405-80d7-022fc654115e" class="">
+</p><ul id="6349b9f3-f020-4301-ae93-5a417caa226a" class="bulleted-list"><li style="list-style-type:disc"><strong>Objetivo principal</strong></li></ul><p id="8fc04cb5-15fd-403e-8e11-24ec27e52bd2" class="">Analisar o comportamento da importação de armas da Rússia e Ucrânia entre 2007 e 2022 e observar seus outliers.</p><p id="6121c8de-4df4-408b-9681-b642542d9155" class="">
+</p><ul id="d8f719f7-da38-4526-92d2-93f693ef6354" class="bulleted-list"><li style="list-style-type:disc"><strong>Principais bases de dados</strong></li></ul><p id="ab9caeb4-677c-41d7-ba35-985fe5350011" class="">Banco de dados do Banco Mundial - baseado no banco de dados do SIPRI (Stockholm International Peace Research Institute).</p><figure id="0a280f66-a470-4787-8a0c-66fc2406173c"><a href="https://databank.worldbank.org/metadataglossary/world-development-indicators/series/MS.MIL.MPRT.KD" target="_blank" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Glossary | DataBank</div><div class="bookmark-description">Arms imports (SIPRI trend indicator values) Arms transfers cover the supply of military weapons through sales, aid, gifts, and those made through manufacturing licenses. Data cover major conventional weapons such as aircraft, armored vehicles, artillery, radar systems, missiles, and ships designed for military use. Excluded are transfers of other military equipment such as small arms and light weapons, trucks, small artillery, ammunition, support equipment, technology transfers, and other services. Figures are SIPRI Trend Indicator Values (TIVs) expressed in US$ m. A &#x27;0&#x27; indicates that the value of deliveries is less than US$0.5m. Stockholm International Peace Research Institute (SIPRI), Arms Transfers Programme (http://portal.sipri.org/publications/pages/transfer/splash). Public Sector: Defense &amp; arms trade Annual Sum Stockholm International Peace Research Institute (SIPRI)&#x27;s Arms Transfers Program collects data on arms transfers from open sources. Since publicly available information is inadequate for tracking all weapons and other military equipment, SIPRI covers only what it terms major conventional weapons. Data cover the supply of weapons through sales, aid, gifts, and manufacturing licenses; therefore the term arms transfers rather than arms trade is used. SIPRI data also cover weapons supplied to or from rebel forces in an armed conflict as well as arms deliveries for which neither the supplier nor the recipient can be identified with acceptable certainty; these data are available in SIPRI&#x27;s database.  Data cover major conventional weapons such as aircraft, armored vehicles, artillery, radar systems and other sensors, missiles, and ships designed for military use as well as some major components such as turrets for armored vehicles and engines. Excluded are other military equipment such as most small arms and light weapons, trucks, small artillery, ammunition, support equipment, technology transfers, and other services. Although national defense is an important function of government and security from external threats that contributes to economic development, high military expenditures for defense or civil conflicts burden the economy and may impede growth. Data on military expenditures are a rough indicator of the portion of national resources used for military activities and of the burden on the economy.  Comparisons of military spending among countries should take into account the many factors that influence perceptions of vulnerability and risk, including historical and cultural traditions, the length of borders that need defending, the quality of relations with neighbors, and the role of the armed forces in the body politic. SIPRI calculates the volume of transfers to, from and between all parties using the TIV and the number of weapon systems or subsystems delivered in a given year. This data is intended to provide a common unit to allow the measurement if trends in the flow of arms to particular countries and regions over time. Therefore, the main priority is to ensure that the TIV system remains consistent over time, and that any changes introduced are backdated.  SIPRI TIV figures do not represent sales prices for arms transfers. They should therefore not be directly compared with gross domestic product (GDP), military expenditure, sales values or the financial value of export licences in an attempt to measure the economic burden of arms imports or the economic benefits of exports. They are best used as the raw data for calculating trends in international arms transfers over periods of time, global percentages for suppliers and recipients, and percentages for the volume of transfers to or from particular states. Data for some countries are based on partial or uncertain data or rough estimates. SIPRI statistical data on arms transfers relates to actual deliveries of major conventional weapons. To permit comparison between the data on such deliveries of different weapons and to identify general trends, SIPRI has developed a unique system to measure the volume of international transfers of major conventional weapons using a common unit, the trend-indicator value (TIV).   The TIV is based on the known unit production costs of a core set of weapons and is intended to represent the transfer of military resources rather than the financial value of the transfer. Weapons for which a production cost is not known are compared with core weapons based on: size and performance characteristics (weight, speed, range and payload); type of electronics, loading or unloading arrangements, engine, tracks or wheels, armament and materials; and the year in which the weapon was produced. A weapon that has been in service in another armed force is given a value 40 per cent of that of a new weapon. A used weapon that has been significantly refurbished or modified by the supplier before delivery is given a value of 66 per cent of that of a new weapon. https://datacatalog.worldbank.org/public-licenses#cc-by CC BY-4.0</div></div><div class="bookmark-href"><img src="https://data.worldbank.org/favicon.ico?v=1.1" class="icon bookmark-icon"/>https://databank.worldbank.org/metadataglossary/world-development-indicators/series/MS.MIL.MPRT.KD</div></div></a></figure><figure id="0693a3bc-c4e9-46af-bdd0-646d8d8de115"><a href="https://www.sipri.org/databases/armstransfers" target="_blank" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">SIPRI Arms Transfers Database</div><div class="bookmark-description">The SIPRI Arms Transfers Database contains information on all transfers of major conventional arms from 1950 to the most recent full calendar year. It is a unique resource for researchers, policymakers and analysts, the media and civil society interested in monitoring and measuring the international flow of major conventional arms.</div></div><div class="bookmark-href"><img src="https://www.sipri.org/sites/default/files/favicon%20%281%29.ico" class="icon bookmark-icon"/>https://www.sipri.org/databases/armstransfers</div></div></a></figure><p id="0d050c0e-bf4a-4286-b289-9571b9c6146b" class="">
+</p><ul id="bbc6f8d7-e568-4004-88c9-18b453259574" class="bulleted-list"><li style="list-style-type:disc"><strong>Dicionário de dados</strong></li></ul><table id="3ea07da1-ef6f-4629-8a3e-81a4b43a9d9d" class="simple-table"><tbody><tr id="f6b7d47c-5a90-4df6-9262-e063bcac3d75"><td id="\^JP" class="block-color-teal_background"><strong>Tabela</strong></td><td id="XAkK" class="block-color-brown_background" style="width:489px">Importação de Armas por país</td></tr><tr id="fe686ffe-d789-44fb-a53d-2b4b87bad433"><td id="\^JP" class="block-color-teal_background"><strong>Descrição</strong></td><td id="XAkK" class="block-color-brown_background" style="width:489px">Armazenará os valores em TIV da importação de armas de cada país</td></tr><tr id="dd7b410d-54d9-4aba-8709-c1dc04caf013"><td id="\^JP" class="block-color-teal_background"><strong>Observações</strong></td><td id="XAkK" class="block-color-brown_background" style="width:489px">TIV = Valores Indicadores de Tendência do SIPRI (TIVs - Trend Indicator Value) expressos em milhões de dólares.<br/>Os dados foram reescalonados de milhões de dólares (TIV) para trilhões de dólares com o intuito de melhor visualização da proposta.<br/>Os indicadores TIV consideram diversos meios de transação de diversos tipos de armas, veículos, e insumos bélicos em geral.<br/></td></tr></tbody></table><table id="1d581884-85f9-492b-9e67-de83e139ba0b" class="simple-table"><thead class="simple-table-header"><tr id="22724456-801a-411a-a328-f42f8d20b9c4"><th id="v]mR" class="block-color-teal_background simple-table-header"><strong>Campos</strong></th><th id="c:g{" class="block-color-teal_background simple-table-header"></th><th id="&gt;|Cu" class="block-color-teal_background simple-table-header" style="width:250px"></th></tr></thead><tbody><tr id="910195a5-2994-4f99-b2bd-e63c924ea3c2"><td id="v]mR" class="block-color-gray_background"><strong>Nome</strong></td><td id="c:g{" class="block-color-gray_background"><strong>Descrição</strong></td><td id="&gt;|Cu" class="block-color-gray_background" style="width:250px"><strong>Tipo de dado</strong></td></tr><tr id="797608ff-95d1-4ce1-ba46-5d5436a5e955"><td id="v]mR" class="block-color-brown_background"><strong>País</strong></td><td id="c:g{" class="block-color-brown_background">Nome do País</td><td id="&gt;|Cu" class="block-color-brown_background" style="width:250px"><strong>VARCHAR</strong></td></tr><tr id="6c435608-e911-4906-a9bc-07a8d9b80265"><td id="v]mR" class="block-color-brown_background"><strong>TIV</strong></td><td id="c:g{" class="block-color-brown_background">Valor em dólares de insumos bélicos importados</td><td id="&gt;|Cu" class="block-color-brown_background" style="width:250px"><strong>INT</strong></td></tr></tbody></table><p id="7e9fc870-04c0-4af7-ae51-bf156991ad61" class="">
+</p><ul id="26c284fa-0146-4cf5-a1c3-ae76fe10c5c0" class="bulleted-list"><li style="list-style-type:disc"><strong>Tipo de estatística</strong><ul id="bbdd0ea3-c56c-4d3f-9b2d-b17485801264" class="bulleted-list"><li style="list-style-type:circle"><strong>Box Plot</strong></li></ul><ul id="82d50d4c-3aff-4332-bb47-e2299d303ec4" class="bulleted-list"><li style="list-style-type:circle"><strong>Gráfico de Linha com Marcadores</strong></li></ul><ul id="55151078-6482-4d08-a551-3d89e891a094" class="bulleted-list"><li style="list-style-type:circle"><strong>CV (Coeficiente de Variação)</strong></li></ul></li></ul><p id="6d0c18ef-135e-4c6e-a140-4dbaa8431093" class="">
+</p><ul id="e19fc0b3-fd63-40ee-b24e-3984b007dc82" class="bulleted-list"><li style="list-style-type:disc"><strong>Problema que quer resolver</strong></li></ul><p id="8875089e-76da-46b7-b61a-3d0a45045108" class="">Este relatório visa identificar outliers e analisar as variações anuais nas importações de armas entre Rússia e Ucrânia. Para isso foi utilizado o método Box Plot para comparar a distribuição das importações e destacar anos com valores atípicos. Um Gráfico de Linha com Marcadores complementa essa análise, mostrando as tendências ao longo do tempo e permitindo visualizar alterações significativas nas importações anuais. E para se ter uma medida de variabilidade relativa, utilizou-se o Coeficiente de Variação (CV) para compreender a variabilidade das importações ao longo dos anos.</p><p id="57ff62eb-ab78-4b92-9f3a-6aa705f29a34" class="">
+</p><ul id="4c87562a-fe80-4712-9bfa-74931ccc5acf" class="bulleted-list"><li style="list-style-type:disc"><strong>Por que é relevante</strong></li></ul><p id="9000132b-41a1-46e6-9364-13febbe3bb6f" class="">A análise da importação de armas entre Rússia e Ucrânia é relevante pois a importação de armas pode ser um indicador de tensões regionais, o que levaria a uma escalada de conflito. O que indicaria o risco da segurança e estabilidade econômica de determinada região.</p><p id="5bfbbe8b-9b14-43c2-b66a-325ac22f253f" class="">
+</p><ul id="c0c31ec5-ca9d-4ebc-9e11-c0eb27ef17a5" class="bulleted-list"><li style="list-style-type:disc"><strong>Como é relevante</strong></li></ul><p id="f562bbfa-23bd-4fb5-833d-b75affa5ddc5" class="">A importação de armas entre Rússia e Ucrânia é um indicador importante de tensões regionais, que podem levar a uma escalada de conflitos. Isso pode representar um risco para a segurança e a estabilidade econômica de uma determinada região. Essa análise pode ajudar a prever futuros conflitos e permitir que as nações se preparem adequadamente.</p><p id="8db8e018-041b-4ed9-b7bc-1951ec59a3b1" class="">
+</p><ul id="e97967ec-6d87-4b0f-a54f-3a0fff766313" class="bulleted-list"><li style="list-style-type:disc"><strong>Quem se beneficiaria</strong></li></ul><p id="031ac8aa-fd29-4fe9-893d-a1afd08f6225" class="">Os principais beneficiários desta pesquisa seriam governos, pesquisadores e a indústria bélica. Esses padrões podem ser usados para desenvolver políticas e estratégias para encerrar conflitos e promover a paz.</p><p id="62d63717-0025-4708-bf11-8253ad43a527" class="">
+</p><ul id="b93464cb-d5f1-4e9c-807f-4fca1749e382" class="bulleted-list"><li style="list-style-type:disc"><strong>Quanto custaria</strong></li></ul><p id="0d4bf0d7-d35d-4d57-9787-d8883849d5ff" class="">Os custos podem variar dependendo do tamanho da pesquisa, apesar da coleta de dados ser do SIPRI, haveriam despesas com análise de dados, publicação (preparação e publicação de relatório) e divulgação de resultados (através de conferências e workshops), além de custos indiretos.</p><p id="bc1c07f9-d005-4273-8b8d-b05c70850e6d" class="">
+</p></div></details><p id="30f98b16-b911-4321-8f04-f0955015fd19" class="">
+</p><details><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">CÓDIGOS</summary><br><div class="indented"><details><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Box Plot</summary><br><div class="indented"><details><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Rússia 2007-2022</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="610b216b-a2c9-491a-a04c-f5eb488de90d" class="code"><code class="language-Python">import pandas as pd
+import matplotlib.pyplot as plt
+
+url = &quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+df = pd.read_csv(url, sep=&#x27;;&#x27;)
+
+plt.boxplot(df[&#x27;Russia&#x27;])
+plt.title(&#x27;Rússia 2007-2022&#x27;)
+plt.ylabel(&#x27;Trilhões de US$&#x27;)
+plt.xticks([])
+plt.show()</code></pre><figure id="62b02d35-5a7a-4078-a4fb-a75efd42af67" class="image"><a href="Projeto%20236a4b076ea446a6a04917c555a51bce/Untitled.png"><img style="width:571px" src="Projeto%20236a4b076ea446a6a04917c555a51bce/Untitled.png"/></a></figure></div></details><details><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Ucrânia 2007-2022</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="949afbf7-95ea-4bb5-8c62-6917d4961ef7" class="code"><code class="language-Python">import pandas as pd
+import matplotlib.pyplot as plt
+
+url=&quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+df=pd.read_csv(url, sep=&#x27;;&#x27;)
+
+plt.boxplot(df[&#x27;Ucrania&#x27;])
+plt.title(&#x27;Ucrânia 2007-2022&#x27;)
+plt.ylabel(&#x27;Trilhões de US$&#x27;)
+plt.xticks([])
+plt.show()</code></pre><figure id="d7f4979d-0541-4ff5-b0ba-05a1e6f30e06" class="image"><a href="Projeto%20236a4b076ea446a6a04917c555a51bce/Untitled%201.png"><img style="width:580px" src="Projeto%20236a4b076ea446a6a04917c555a51bce/Untitled%201.png"/></a></figure></div></details><details><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Ucrânia 2007-2021</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7d200563-3cb3-4ff2-9c22-c6520d7d43a9" class="code"><code class="language-Python">import pandas as pd
+import matplotlib.pyplot as plt
+
+url=&quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+df=pd.read_csv(url, sep=&#x27;;&#x27;)
+
+ate2021 = df[df[&#x27;Ano&#x27;] &lt;= 2021]
+
+plt.boxplot(ate2021[&#x27;Ucrania&#x27;])
+plt.title(&#x27;Ucrânia 2007-2021&#x27;)
+plt.ylabel(&#x27;Trilhões de US$&#x27;)
+plt.xticks([])
+plt.show()</code></pre><figure id="f42a763f-6183-4172-a1f3-2523bcf82b0d" class="image"><a href="Projeto%20236a4b076ea446a6a04917c555a51bce/Untitled%202.png"><img style="width:562px" src="Projeto%20236a4b076ea446a6a04917c555a51bce/Untitled%202.png"/></a></figure></div></details><details><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Rússia e Ucrânia 2007-2022</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f3615c5b-1fbc-4603-833f-1e782a130ee4" class="code"><code class="language-Python">import pandas as pd
+import matplotlib.pyplot as plt
+
+url=&quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+df=pd.read_csv(url, sep=&#x27;;&#x27;)
+
+plt.boxplot([df[&#x27;Russia&#x27;], df[&#x27;Ucrania&#x27;]], labels=[&#x27;Rússia&#x27;, &#x27;Ucrânia&#x27;])
+plt.title(&#x27;Rússia e Ucrânia 2007-2022&#x27;)
+plt.ylabel(&#x27;Trilhões de US$&#x27;)
+plt.xlabel(&#x27;Países&#x27;)
+plt.show()</code></pre><figure id="3e38f546-7f28-48ee-a898-017d44ed97a6" class="image"><a href="Projeto%20236a4b076ea446a6a04917c555a51bce/Untitled%203.png"><img style="width:580px" src="Projeto%20236a4b076ea446a6a04917c555a51bce/Untitled%203.png"/></a></figure></div></details><details><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Rússia e Ucrânia 2007-2021</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d6c7ef6b-8f34-475d-bf4c-81bc5b2dbb3c" class="code"><code class="language-Python">import pandas as pd
+import matplotlib.pyplot as plt
+
+url=&quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+df=pd.read_csv(url, sep=&#x27;;&#x27;)
+
+ate2021 = df[df[&#x27;Ano&#x27;] &lt;= 2021]
+
+plt.boxplot([ate2021[&#x27;Russia&#x27;], ate2021[&#x27;Ucrania&#x27;]], labels=[&#x27;Rússia&#x27;, &#x27;Ucrânia&#x27;])
+plt.title(&#x27;Rússia e Ucrânia 2007-2021&#x27;)
+plt.ylabel(&#x27;Trilhões de US$&#x27;)
+plt.xlabel(&#x27;Países&#x27;)
+plt.show()</code></pre><figure id="e6959cb5-5d41-44b4-afdb-97d3feba55af" class="image"><a href="Projeto%20236a4b076ea446a6a04917c555a51bce/Untitled%204.png"><img style="width:571px" src="Projeto%20236a4b076ea446a6a04917c555a51bce/Untitled%204.png"/></a></figure></div></details></div></details><br><details><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Gráfico de Linha com Marcadores</summary><br><div class="indented"><details><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Rússia e Ucrânia (2007-2022)</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="980b364f-0d29-4ff4-b7ee-7e0d75369706" class="code"><code class="language-Python">import pandas as pd
+import matplotlib.pyplot as plt
+
+url = &quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+df = pd.read_csv(url, sep=&#x27;;&#x27;)
+
+plt.figure(figsize=(12, 6))
+plt.plot(df[&#x27;Russia&#x27;], marker=&#x27;o&#x27;, label=&#x27;Rússia&#x27;)
+plt.plot(df[&#x27;Ucrania&#x27;], marker=&#x27;o&#x27;, label=&#x27;Ucrânia&#x27;)
+
+plt.title(&#x27;Rússia e Ucrânia 2007-2022&#x27;)
+plt.ylabel(&#x27;Trilhões de US$&#x27;)
+plt.xlabel(&#x27;Ano&#x27;)
+
+anos = list(range(2007, 2023))
+indices = list(range(len(anos)))
+plt.xticks(indices, anos)
+
+plt.legend()
+plt.grid(True)
+plt.show()</code></pre><figure id="defb521e-922d-4cc3-aad0-84c6985a78a2" class="image"><a href="Projeto%20236a4b076ea446a6a04917c555a51bce/Untitled%205.png"><img style="width:624px" src="Projeto%20236a4b076ea446a6a04917c555a51bce/Untitled%205.png"/></a></figure></div></details><details><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Rússia e Ucrânia (2007-2021)</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ce7a00d6-d62f-4572-841b-b36887b919ff" class="code"><code class="language-Python">import pandas as pd
+import matplotlib.pyplot as plt
+
+url = &quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+df = pd.read_csv(url, sep=&#x27;;&#x27;)
+
+ate2021 = df[df[&#x27;Ano&#x27;] &lt;= 2021]
+
+plt.figure(figsize=(12, 6))
+plt.plot(ate2021[&#x27;Russia&#x27;], marker=&#x27;o&#x27;, label=&#x27;Rússia&#x27;)
+plt.plot(ate2021[&#x27;Ucrania&#x27;], marker=&#x27;o&#x27;, label=&#x27;Ucrânia&#x27;)
+
+plt.title(&#x27;Rússia e Ucrânia 2007-2021&#x27;)
+plt.ylabel(&#x27;Trilhões de US$&#x27;)
+plt.xlabel(&#x27;Ano&#x27;)
+
+anos = list(range(2007, 2023))
+indices = list(range(len(anos)))
+plt.xticks(indices, anos)
+
+plt.legend()
+plt.grid(True)
+plt.show()</code></pre><figure id="cb1851d4-0c98-4601-afa1-7035aa78542f" class="image"><a href="Projeto%20236a4b076ea446a6a04917c555a51bce/Untitled%206.png"><img style="width:1023px" src="Projeto%20236a4b076ea446a6a04917c555a51bce/Untitled%206.png"/></a></figure></div></details></div></details><br><details><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">CV (Coeficiente de Variação)</summary><br><div class="indented"><details><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Rússia e Ucrânia (2007-2022)</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a2e9ff16-bd33-48a0-ae42-8c84e2610e77" class="code"><code class="language-Python">import pandas as pd
+
+url = &quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+df = pd.read_csv(url, sep=&#x27;;&#x27;)
+
+def CV(dados):
+    media = dados.mean()
+    desvio_padrao = dados.std()
+    return (desvio_padrao / media) * 100
+
+CV_russia = CV(df[&#x27;Russia&#x27;])
+CV_ucrania = CV(df[&#x27;Ucrania&#x27;])
+
+
+print(f&quot;CV da Rússia (2007-2022): {CV_russia:.2f}%&quot;)
+print(f&quot;CV da Ucrânia (2007-2022): {CV_ucrania:.2f}%&quot;)</code></pre><blockquote id="8512fe92-692d-4d5c-b3aa-22370118e89b" class=""><strong>CV da Rússia (2007-2022): 93.31%<br/>CV da Ucrânia (2007-2022): 372.68%<br/></strong></blockquote></div></details><details><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Rússia e Ucrânia (2007-2021)</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2d821209-91df-43ec-9fbf-4dd751bbd252" class="code"><code class="language-Python">import pandas as pd
+
+url = &quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+df = pd.read_csv(url, sep=&#x27;;&#x27;)
+
+ate2021 = df[df[&#x27;Ano&#x27;] &lt;= 2021]
+
+def CV(dados):
+    media = dados.mean()
+    desvio_padrao = dados.std()
+    return (desvio_padrao / media) * 100
+
+CV_russia = cv(ate2021[&#x27;Russia&#x27;])
+CV_ucrania = cv(ate2021[&#x27;Ucrania&#x27;])
+
+
+print(f&quot;CV da Rússia (2007-2021): {CV_russia:.2f}%&quot;)
+print(f&quot;CV da Ucrânia (2007-2021): {CV_ucrania:.2f}%&quot;)</code></pre><blockquote id="d31206ba-4d1b-4f6f-9bb5-a03fc823753c" class=""><strong>CV da Rússia (2007-2021): 99.31%<br/>CV da Ucrânia (2007-2021): 164.71%<br/></strong></blockquote></div></details></div></details></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
